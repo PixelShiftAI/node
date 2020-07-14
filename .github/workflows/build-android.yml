@@ -8,7 +8,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+      
+    - name: List NDK
+      run: ls $ANDROID_SDK_ROOT/ndk
+      
     - name: Configure
       run: ./android-configure $ANDROID_SDK_ROOT/ndk/21.3.6528147 arm64 23
 
