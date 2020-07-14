@@ -1,0 +1,16 @@
+name: build-android
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on:  ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Configure
+      run: ./android-configure $ANDROID_SDK_ROOT/ndk/21.3.6528147 arm64 23
+
+    - name: Make
+      run: make -j4
