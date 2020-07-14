@@ -9,11 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    - name: List NDK
-      run: find $ANDROID_SDK_ROOT
-      
     - name: Configure
-      run: ./android-configure $ANDROID_SDK_ROOT/ndk/21.3.6528147 arm64 23
+      run: ./android-configure $ANDROID_SDK_ROOT/ndk-bundle arm64 23
 
     - name: Make
-      run: make -j4
+      run: LDFLAGS=-shared make -j4
